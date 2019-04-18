@@ -4,13 +4,13 @@ class ScoresController < ApplicationController
   end
 
   def create
-    render json:Score.create(score_params)
+    render json: Score.create(score_params)
   end
 
   private
 
   def score_params
-    params.require(:score).permit(:score, :user_id)
+    params.require(:score).permit(:user_id, :user_score)
   end
 
 end

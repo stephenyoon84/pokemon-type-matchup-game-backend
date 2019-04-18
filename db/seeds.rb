@@ -10,6 +10,7 @@ User.destroy_all
 Score.destroy_all
 Pokemon.destroy_all
 
+admin = User.create(name: "-", email: "-")
 ann = User.create(name: "Ann", email: "ann.duong@example.com")
 ammar = User.create(name: "Ammar", email: "ammar.ali@example.com")
 stephen = User.create(name: "Stephen", email: "stephen.yoon@example.com")
@@ -17,7 +18,7 @@ stephen = User.create(name: "Stephen", email: "stephen.yoon@example.com")
 base_path = "https://pokeapi.co/api/v2/pokemon/"
 
 i = 1
-while i < 808 do
+while i < 803 do
   target = JSON.load(open("#{base_path}#{i}"))
   # Pokemon.create(name: target["name"], type1: target["types"][0]["type"]["name"], type2: target["types"][1]["type"]["name"], image_url: target["sprites"]["front_default"])
   # i += 1
@@ -29,3 +30,5 @@ while i < 808 do
     i += 1
   end
 end
+
+10.times{Score.create(user_id: 1, user_score: 0)}
